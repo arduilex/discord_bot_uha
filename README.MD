@@ -70,11 +70,11 @@ This project was entierly made by me.
 
 ## Versions
 
-* v1.0
+* [v1.0](https://github.com/arduilex/discord_bot_uha/releases/tag/1.0)
     * Split notes and crous in two distinct programms.
 * v0.2
     * Add scraping for Crous Mulhouse Restaurant
-* legacy
+* [legacy](https://github.com/arduilex/discord_bot_uha/tree/legacy)
     * You can find my very old version here, it works with Java Script, the process is very crappy.
 
 ## License

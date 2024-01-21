@@ -6,7 +6,7 @@ The scraping is very simple, we just have to POST a php request and we get a JSO
 
 Let's take a look at how find this request url 
 
-1. Go to https://notes.iutmulhouse.uha.fr/ in your favorite browser, you must login.
+1. Go to https://notes.iutmulhouse.uha.fr/, you must login.
 2. Open the inspector (`ctrl+maj+i` or `F12`)
 3. Go to Network tab 
 4. Clic on an other semester i.e "Semestre 1"

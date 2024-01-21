@@ -1,10 +1,16 @@
+# environment 
 **/__pycache__
-**/node_modules
 **/.venv
-/.vscode
-.log
 .env
+
+# log file
 *.log
 
+# folder
 **/data
 **/temp
+
+# pyinstaller
+*.spec
+**/dist
+**/build

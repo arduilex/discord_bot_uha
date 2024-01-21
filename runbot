@@ -1,4 +1,4 @@
 #!/bin/bash
-python src/bot.py &
+python src/main_bot.py &
 python src/main_notes.py &
 python src/main_crous.py &

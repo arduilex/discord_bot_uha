@@ -1,5 +1,7 @@
 **/__pycache__
 **/node_modules
+**/.venv
 /.vscode
 .log
 .env
+*.log

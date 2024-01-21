@@ -10,11 +10,11 @@ A personal bot discord that sends **new class notes** and meals from the **Crous
 ## Getting Started
 
 ### 1. Clone the repository
-* clone the repository
+Clone the repository
 ```
 git clone https://github.com/arduilex/discord_bot_uha.git
 ```
-* On Linux you have to create a virtual environement for Python :
+On Linux you have to create a virtual environement for Python :
 ```bash
 cd discord_bot_uha
 python -m venv .venv
@@ -30,9 +30,13 @@ pip isntall -r requirements.txt
 
 ### 3. Setup environment variable
 
-* Rename `.env.example` in `.env` and add your UHA **login**, Discord **channel ID** etc.
+Rename `.env.example` in `.env` and add your UHA **login**, Discord **channel ID** etc.
 
-### Executing program
+### 4. Choose your browser
+Depending on what browser you have installed on your pc, you have to edit `src/scraping/selenium_driver.py`.  
+By defaut it's already setup for Chromium. If you use Firefox, simply comment and uncomment the appropriate line.
+
+### 5. Executing program
 
 In your terminal, at the root of your local repository run the following programs :
 - Run Discord bot

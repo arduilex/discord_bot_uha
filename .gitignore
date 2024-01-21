@@ -1,7 +1,5 @@
 **/__pycache__
 **/node_modules
 /.vscode
-*.json
-!picture.json
 .log
 .env

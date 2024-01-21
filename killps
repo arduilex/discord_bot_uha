@@ -1,0 +1,4 @@
+#!/bin/bash
+pkill python
+pkill chromedriver
+pkill chromium-browse

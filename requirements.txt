@@ -1,0 +1,5 @@
+selenium
+discord.py
+schedule
+python-dotenv
+webdriver-manager

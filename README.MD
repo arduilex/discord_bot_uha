@@ -12,7 +12,7 @@ A personal bot discord that sends **new class notes** and meals from the **Crous
 ### 1. Clone the repository
 * clone the repository
 ```
-git clone https://github.com/arduiles/discord_bot_uha.git
+git clone https://github.com/arduilex/discord_bot_uha.git
 ```
 * On Linux you have to create a virtual environement for Python :
 ```bash
@@ -24,21 +24,22 @@ source .venv/bin/activate
 ```bash
 pip isntall -r requirements.txt
 ```
+`requirements.txt` include :
 * [Discord.py](https://discordpy.readthedocs.io/en/stable/intro.html#installing) for the bot
 * [Selenium](https://selenium-python.readthedocs.io/installation.html#installing-python-bindings-for-selenium) for the scraping
-* [Schedule](https://pypi.org/project/schedule/) for automation 
 
-### 3. Setup login
+### 3. Setup environment variable
 
-* Rename `.env.example` in `.env` and add your **uha login** and **Discord channel ID**
+* Rename `.env.example` in `.env` and add your UHA **login**, Discord **channel ID** etc.
 
 ### Executing program
 
 In your terminal, at the root of your local repository run the following programs :
 - Run Discord bot
 ```
-python src/bot.py &
+python src/main_bot.py &
 ```
+`main_bot.py` communicate with other main trough socket. (See `HOST` and `PORT` in `.env`)
 - Run notes scraping
 ```
 python src/main_notes.py &

@@ -8,6 +8,6 @@ from webdriver_manager.core.os_manager import ChromeType
 
 def driver_on():
     options = Options()
-    # options.add_argument("--headless")  # Assurez-vous d'utiliser deux tirets
+    options.add_argument("--headless")
     # options.add_argument("--disable-gpu")
     return webdriver.Chrome(options=options, service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))

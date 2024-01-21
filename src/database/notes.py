@@ -9,20 +9,23 @@ class NotesBDD():
     def extract(self):   # return notes in a clean dict
         # read json file and extract title and note
         with open("temp/data.json", encoding='utf-8') as json_file:
-            evaluation_bdd = []
-            data = json.load(json_file)
-            ressources = data["relevé"]["ressources"]
-            for ressource in ressources.values():
-                matiere_name = ressource["titre"].split(":")[-1][0:] # supression de R05.4
-                for eval in ressource["evaluations"]:
-                    if eval["note"]["value"] != "~":
-                        evaluation_bdd.append({})
-                        insert = evaluation_bdd[-1]
-                        insert["matiere"] = matiere_name
-                        insert["titre"] = eval["description"]
-                        insert["date"] = eval["date"]
-                        insert["coef"] = eval["coef"]
-                        insert["note"] = eval["note"]
+            try:
+                evaluation_bdd = []
+                data = json.load(json_file)
+                ressources = data["relevé"]["ressources"]
+                for ressource in ressources.values():
+                    matiere_name = ressource["titre"].split(":")[-1][0:] # supression de R05.4
+                    for eval in ressource["evaluations"]:
+                        if eval["note"]["value"] != "~":
+                            evaluation_bdd.append({})
+                            insert = evaluation_bdd[-1]
+                            insert["matiere"] = matiere_name
+                            insert["titre"] = eval["description"]
+                            insert["date"] = eval["date"]
+                            insert["coef"] = eval["coef"]
+                            insert["note"] = eval["note"]
+            except:
+                logging.error("Erreur lors de l'extraction des notes")
         # pour marquer en dure la bdd
         with open("temp/evaluation.json", "w", encoding='utf-8') as save:
             json.dump(evaluation_bdd, save, indent=3, ensure_ascii=False)
@@ -30,11 +33,10 @@ class NotesBDD():
 
     def find_new_note(self):
         self.new_notes = []
-        # vérifions d'abord qu'il y a plsu délément dans
-        # now_bb que dans old_bdd
         if len(self.now_bdd) > len(self.old_bdd):
             for evaluation in self.now_bdd:
                 if evaluation not in self.old_bdd:
+                    logging.info(f"Nouvelle note détecté en {evaluation['matiere']}")
                     self.new_notes.append(evaluation)
             self.old_bdd = self.now_bdd
 

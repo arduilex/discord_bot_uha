@@ -70,9 +70,9 @@ This project was entierly made by me.
 
 ## Versions
 
-* v1.1
-    * Split notes and crous in two distinct programms.
 * v1.0
+    * Split notes and crous in two distinct programms.
+* v0.2
     * Add scraping for Crous Mulhouse Restaurant
 * legacy
     * You can find my very old version here, it works with Java Script, the process is very crappy.

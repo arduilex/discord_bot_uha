@@ -1,10 +1,10 @@
 # Discord Bot UHA
 
-A personal bot discord that sends **new class notes** and meals from the **Crous restaurant**. 
+A personal bot for Discord that sends **new class notes** and meals from the **Crous restaurant**.
 
 ## Description
-- Scrap data every 10min from [UHA notes](https://notes.iutmulhouse.uha.fr/) after logging in. Compare with the previous notes database and if a new note is detected, send it in an embled message to a specific Discord channel. More details on how scraping IUT notes [here](./uha_scraping_wiki.MD)
-- Scrap data every day at 8am from [Crous Restaurant](https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2). Send the meal into a embled message to a specific Discord channel.
+- Scrapes data every 10 minutes from [UHA notes](https://notes.iutmulhouse.uha.fr/) after logging in. It compares the scraped data with the previous notes database. If a new note is detected, it sends it in an embellished message to a specific Discord channel. More details on how UHA notes scraping works can be found [here](./uha_scraping_wiki.MD).
+- Scrapes data every day at 8 am from [Crous Restaurant](https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2). The meal is then sent in an embellished message to a specific Discord channel.
 
 
 ## Getting Started
@@ -14,7 +14,7 @@ Clone the repository
 ```
 git clone https://github.com/arduilex/discord_bot_uha.git
 ```
-On Linux you have to create a virtual environement for Python :
+On Linux, you need to create a virtual environment for Python:
 ```bash
 cd discord_bot_uha
 python -m venv .venv
@@ -24,26 +24,27 @@ source .venv/bin/activate
 ```bash
 pip isntall -r requirements.txt
 ```
-`requirements.txt` include :
+`requirements.txt` includes :
 * [Discord.py](https://discordpy.readthedocs.io/) for the bot
 * [Selenium](https://selenium-python.readthedocs.io/) for the scraping
 
-### 3. Setup environment variable
+### 3. Set up environment variables
 
-Rename `.env.example` in `.env` and add your UHA **login**, Discord **channel ID** etc.
+Rename `.env.example` to `.env` and add your UHA **login**, Discord **channel ID**, etc.
 
 ### 4. Choose your browser
-Depending on what browser you have installed on your pc, you have to edit `src/scraping/selenium_driver.py`.  
-By defaut it's already setup for Chromium. If you use Firefox, simply comment and uncomment the appropriate line.
 
-### 5. Executing program
+Depending on what browser you have installed on your pc, you need to edit `src/scraping/selenium_driver.py`. By default, it's already set up for Chromium. If you use Firefox, simply comment and uncomment the appropriate lines.
 
-In your terminal, at the root of your local repository run the following programs :
+### 5. Executing the program
+
+In your terminal, at the root of your local repository, run the following programs:
+
 - Run Discord bot
 ```
 python src/main_bot.py &
 ```
-`main_bot.py` communicate with other main trough socket. (See `HOST` and `PORT` in `.env`)
+`main_bot.py` communicates with other main modules through sockets. (See `HOST` and `PORT` in `.env`)
 - Run notes scraping
 ```
 python src/main_notes.py &
@@ -52,20 +53,20 @@ python src/main_notes.py &
 ```
 python src/main_crous.py &
 ```
-`&` run Python in background, you can see process with `ps` and kill it with `kill [process_id]` or `pkill [process_name]` 
+`&` runs Python in the background. You can see the process with `ps` and kill it with `kill [process_id]` or `pkill [process_name]`
 
-## Debug
+## Debugging
 
-To see scraping in your computer (not in a server), simply delete this line in **scraping**'s  folder files
+To see scraping in your computer (not in a server), simply delete this line in the files of the **scraping** folder:
 ```
 options.add_argument('--headless')
 ```
 
 ## Authors
 
-This project was entierly made by me.
+This project was entirely made by me.
 
-- e-mail: alexandre@r3tro.fr  
+- Email: alexandre@r3tro.fr
 - Discord: `@arduilex`
 
 ## Versions
@@ -78,5 +79,4 @@ This project was entierly made by me.
     * You can find my very old version here, it works with Java Script, the process is very crappy.
 
 ## License
-
-This project is licensed under no License so feel free to steal my work :)
+This project is licensed under no license. Feel free to steal my work :)

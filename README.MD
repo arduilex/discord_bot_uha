@@ -25,8 +25,8 @@ source .venv/bin/activate
 pip isntall -r requirements.txt
 ```
 `requirements.txt` include :
-* [Discord.py](https://discordpy.readthedocs.io/en/stable/intro.html#installing) for the bot
-* [Selenium](https://selenium-python.readthedocs.io/installation.html#installing-python-bindings-for-selenium) for the scraping
+* [Discord.py](https://discordpy.readthedocs.io/) for the bot
+* [Selenium](https://selenium-python.readthedocs.io/) for the scraping
 
 ### 3. Setup environment variable
 
@@ -68,13 +68,14 @@ This project was entierly made by me.
 - e-mail: alexandre@r3tro.fr  
 - Discord: `@arduilex`
 
-## Version History
+## Versions
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+* v1.1
+    * Split notes and crous in two distinct programms.
+* v1.0
+    * Add scraping for Crous Mulhouse Restaurant
+* legacy
+    * You can find my very old version here, it works with Java Script, the process is very crappy.
 
 ## License
 

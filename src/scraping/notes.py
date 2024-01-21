@@ -12,7 +12,6 @@ def notes_login():
         psw.send_keys(password)
         button_login = driver.find_element(By.NAME, "submit")
         button_login.click()
-        driver.save_screenshot('screenshot.png')
         driver.get("https://notes.iutmulhouse.uha.fr/")
     except:
         logging.error("Impossible de se connecter uha")

@@ -24,6 +24,8 @@ def planificateur():
         time.sleep(1)
 
 if __name__ == "__main__":
+    os.makedirs("temp", exist_ok=True)
+    os.makedirs("data", exist_ok=True)
     load_dotenv()
     HOST = str(os.getenv('HOST'))
     PORT = int(os.getenv('PORT'))

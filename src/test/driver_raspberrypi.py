@@ -6,8 +6,7 @@ options = Options()
 options.add_argument("--headless")  # Assurez-vous d'utiliser deux tirets
 # options.add_argument("--disable-gpu")
 
-# Spécifiez le chemin de l'exécutable Chromium si nécessaire
-# Utilisez le chemin du chromedriver installé
+# see https://ivanderevianko.com/2020/01/selenium-chromedriver-for-raspberrypi
 chrome_service = Service('/usr/lib/chromium-browser/chromedriver')
 
 # Initialisez le WebDriver avec les options et le service spécifiés
@@ -18,6 +17,6 @@ chrome.get("http://apple.com")
 print("Titre de la page: {}".format(chrome.title))
 # chrome.save_screenshot('screenshot.png')
 
-input()
+input("entrez pour quitter")
 
 chrome.quit()

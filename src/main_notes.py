@@ -28,11 +28,11 @@ if __name__ == "__main__":
     HOST = str(os.getenv('HOST'))
     PORT = int(os.getenv('PORT'))
     logging.basicConfig(filename="selenium.log",
-                        format='%(asctime)s %(message)s',
+                        format='%(asctime)s [%(levelname)s] %(message)s',
                         filemode='w')
     scraping.notes.get_notes()
     notes_bdd = NotesBDD()
-    logging.warning('Init done !')
+    logging.info('main_notes.py Ready to go !')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')
     planificateur()
 

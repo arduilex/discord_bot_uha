@@ -33,9 +33,10 @@ if __name__ == "__main__":
     load_dotenv()
     HOST = str(os.getenv('HOST'))
     PORT = int(os.getenv('PORT'))
-    logging.basicConfig(filename="selenium.log",
+    logging.getLogger().setLevel(logging.INFO)
+    logging.basicConfig(filename="crous.log",
                         format='%(asctime)s [%(levelname)s] %(message)s',
-                        filemode='w')
+                        filemode='a')
     crous_bdd = CrousBDD()
     logging.info('main_crous.py Ready to go !')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')

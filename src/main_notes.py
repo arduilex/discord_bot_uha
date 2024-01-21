@@ -29,9 +29,10 @@ if __name__ == "__main__":
     load_dotenv()
     HOST = str(os.getenv('HOST'))
     PORT = int(os.getenv('PORT'))
-    logging.basicConfig(filename="selenium.log",
+    logging.getLogger().setLevel(logging.INFO)
+    logging.basicConfig(filename="notes.log",
                         format='%(asctime)s [%(levelname)s] %(message)s',
-                        filemode='w')
+                        filemode='a')
     scraping.notes.get_notes()
     notes_bdd = NotesBDD()
     logging.info('main_notes.py Ready to go !')

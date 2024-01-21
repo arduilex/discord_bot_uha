@@ -3,7 +3,7 @@
 A personal bot discord that sends **new class notes** and meals from the **Crous restaurant**. 
 
 ## Description
-- Scrap data every 10min from [UHA notes](https://notes.iutmulhouse.uha.fr/) after logging in. Compare with the previous notes database and if a new note is detected, send it in an embled message to a specific Discord channel.
+- Scrap data every 10min from [UHA notes](https://notes.iutmulhouse.uha.fr/) after logging in. Compare with the previous notes database and if a new note is detected, send it in an embled message to a specific Discord channel. More details on how scraping IUT notes [here](./uha_scraping_wiki.MD)
 - Scrap data every day at 8am from [Crous Restaurant](https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2). Send the meal into a embled message to a specific Discord channel.
 
 

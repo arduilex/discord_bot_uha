@@ -1,4 +1,4 @@
-# UHA Scraping Wiki
+# UHA Scraping Explained
 
 
 ## How it works

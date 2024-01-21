@@ -21,8 +21,11 @@ python -m venv .venv
 source .venv/bin/activate
 ``` 
 ### 2. Install dependencies
+```bash
+pip isntall -r requirements.txt```
 * [Discord.py](https://discordpy.readthedocs.io/en/stable/intro.html#installing) for the bot
-- [Selenium](https://selenium-python.readthedocs.io/installation.html#installing-python-bindings-for-selenium) for the scraping
+* [Selenium](https://selenium-python.readthedocs.io/installation.html#installing-python-bindings-for-selenium) for the scraping
+* [Schedule](https://pypi.org/project/schedule/) for automation 
 
 ### 3. Setup login
 

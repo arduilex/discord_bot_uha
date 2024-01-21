@@ -5,3 +5,6 @@
 .log
 .env
 *.log
+
+**/data
+**/temp

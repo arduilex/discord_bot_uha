@@ -72,7 +72,7 @@ This project was entirely made by me.
 ## Versions
 
 * [v1.0](https://github.com/arduilex/discord_bot_uha/releases/tag/1.0)
-    * Split notes and crous in two distinct programms.
+    * Split notes and crous in two distinct programs.
 * v0.2
     * Add scraping for Crous Mulhouse Restaurant
 * [legacy](https://github.com/arduilex/discord_bot_uha/tree/legacy)

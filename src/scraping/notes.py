@@ -30,7 +30,7 @@ def get_notes():
             sleep(5)
         else:
             with open("temp/data.json", "w", encoding='utf-8') as save:
-                json.dump(json.loads(text_file[131:-20]), save, indent=2, ensure_ascii=False
+                json.dump(json.loads(text_file[131:-20]), save, indent=2, ensure_ascii=False)
     except:
         logging.error("Impossible de récupérer la note")
 

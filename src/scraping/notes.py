@@ -5,6 +5,7 @@ import os, logging, json
 
 def notes_login():
     try:
+        logging.info("Connexion uha en cours...")
         driver.get("https://cas.uha.fr/cas/login")
         ident = driver.find_element(By.ID, "username")
         ident.send_keys(email)
@@ -13,6 +14,7 @@ def notes_login():
         button_login = driver.find_element(By.NAME, "submit")
         button_login.click()
         driver.get("https://notes.iutmulhouse.uha.fr/")
+        logging.info("Connexion uha résussis !")
     except:
         logging.error("Impossible de se connecter uha")
 
@@ -25,9 +27,10 @@ def get_notes():
             logging.warning("no login !")
             notes_login()
             get_notes()
+            sleep(5)
         else:
             with open("temp/data.json", "w", encoding='utf-8') as save:
-                json.dump(json.loads(text_file[131:-20]), save, indent=2, ensure_ascii=False)
+                json.dump(json.loads(text_file[131:-20]), save, indent=2, ensure_ascii=False
     except:
         logging.error("Impossible de récupérer la note")
 
@@ -46,4 +49,3 @@ password = os.getenv('password')
 php_request = os.getenv('php_request')
 semestre_acces = php_request
 driver = driver_on()
-notes_login()

@@ -1,5 +1,5 @@
-import scraping.crous
-from database.crous import CrousBDD
+import scraping.crous as scrap
+import database.crous as bdd
 from datetime import datetime
 import logging, time, socket, os, schedule
 from dotenv import load_dotenv
@@ -15,11 +15,10 @@ def send_bot(message):
 
 def check_crous():
     if datetime.today().isoweekday() < 6:
-        scraping.crous.get_crous()
-        if not crous_bdd.is_closed():
-            print("création du menu")
-            crous_bdd.create_menu()
-            send_bot("menu")
+        scrap.get_crous()
+        if not bdd.is_closed():
+            bdd.create_menu()
+            # send_bot("menu")
 
 def planificateur():
     schedule.every().day.at("08:00").do(check_crous)
@@ -37,7 +36,6 @@ if __name__ == "__main__":
     logging.basicConfig(filename="crous.log",
                         format='%(asctime)s [%(levelname)s] %(message)s',
                         filemode='a')
-    crous_bdd = CrousBDD()
     logging.info('main_crous.py Ready to go !')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')
     planificateur()

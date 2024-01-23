@@ -14,7 +14,7 @@ class CrousBDD():
         }
 
     def create_menu(self):
-        new_menus = self.menus
+        new_menus = self.menus.copy()
         with open("temp/raw_menu.txt", encoding='utf-8') as file:
             current_menu = None
             try:

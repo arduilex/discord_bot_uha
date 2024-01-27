@@ -1,10 +1,11 @@
 # you have to put tjis file in src/ direcotry
-import scraping.crous
-from database.crous import CrousBDD
-import os
+import scraping.crous as scrap
+import database.crous as bdd
+import os, logging
 
-os.makedirs("temp", exist_ok=True)
-os.makedirs("data", exist_ok=True)
-crous_bdd = CrousBDD()
-scraping.crous.get_crous()
-crous_bdd.create_menu()
+logging.getLogger().setLevel(logging.INFO)
+logging.basicConfig(filename="crous.log",
+                        format='%(asctime)s [%(levelname)s] %(message)s',
+                        filemode='a')
+scrap.get_crous()
+bdd.create_menu()

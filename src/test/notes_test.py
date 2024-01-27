@@ -1,6 +1,10 @@
 # you have to put tjis file in src/ direcotry
-import scraping.notes
+from scraping.notes import NotesScrap
 from database.notes import NotesBDD
 
-scraping.notes.get_notes()
-notes_bdd = NotesBDD()
+
+my_scrap = ScrapingNotes()
+my_scrap.get_notes()
+
+my_bdd = NotesBDD()
+my_bdd.check_new_note()

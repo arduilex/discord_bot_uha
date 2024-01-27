@@ -33,6 +33,7 @@ if __name__ == "__main__":
     logging.basicConfig(filename="notes.log",
                         format='%(asctime)s [%(levelname)s] %(message)s',
                         filemode='a')
+
     notes_scrap = NotesScrap()
     notes_scrap.generate_token()
     notes_scrap.get_notes()

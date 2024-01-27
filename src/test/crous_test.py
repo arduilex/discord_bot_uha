@@ -1,4 +1,4 @@
-# you have to put tjis file in src/ direcotry
+# you have to put this file in src/ direcotry
 import scraping.crous as scrap
 import database.crous as bdd
 import os, logging

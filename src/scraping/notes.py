@@ -50,3 +50,9 @@ class NotesScrap():
                     json.dump(r.json(), file, indent=2, ensure_ascii=False)
         except:
             logging.error("Impossible de récupérer la note")
+
+email = os.getenv('email')
+password = os.getenv('password')
+php_request = os.getenv('php_request')
+semestre_acces = php_request
+driver = driver_on()

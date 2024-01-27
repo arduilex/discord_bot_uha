@@ -70,7 +70,8 @@ This project was entirely made by me.
 - Discord: `@arduilex`
 
 ## Versions
-
+* [v1.1](https://github.com/arduilex/discord_bot_uha/releases/tag/1.1)
+    * Replace the notes scraping by a simple POST to the API.
 * [v1.0](https://github.com/arduilex/discord_bot_uha/releases/tag/1.0)
     * Split notes and crous in two distinct programs.
 * v0.2

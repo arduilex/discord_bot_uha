@@ -5,21 +5,13 @@ import os, logging, json, requests
 
 class NotesScrap():
     def __init__(self):
-        semestre_code = {
-            1: "192",
-            2: "425",
-            3: "449",
-            4: "494",
-            5: "530",
-            6: ""
-        }
         load_dotenv()
         self.etudiant_id = {
             "email"   : os.getenv('email'),
             "password": os.getenv('password')
         }
         self.php_id = {
-            "semestre": semestre_code[int(os.getenv('semestre'))],
+            "semestre": os.getenv('php_request'),
             "sess_id" : ""
         }
 

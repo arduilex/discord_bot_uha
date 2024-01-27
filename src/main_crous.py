@@ -18,7 +18,7 @@ def check_crous():
         scrap.get_crous()
         if not bdd.is_closed():
             bdd.create_menu()
-            # send_bot("menu")
+            send_bot("menu")
 
 def planificateur():
     schedule.every().day.at("08:00").do(check_crous)

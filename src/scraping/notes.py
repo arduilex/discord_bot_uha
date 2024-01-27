@@ -1,49 +1,56 @@
 from .selenium_driver import driver_on
 from selenium.webdriver.common.by import By
 from dotenv import load_dotenv
-import os, logging, json
+import os, logging, json, requests
 
-def notes_login():
-    try:
-        logging.info("Connexion uha en cours...")
-        driver.get("https://cas.uha.fr/cas/login")
-        ident = driver.find_element(By.ID, "username")
-        ident.send_keys(email)
-        psw = driver.find_element(By.ID, "password")
-        psw.send_keys(password)
-        button_login = driver.find_element(By.NAME, "submit")
-        button_login.click()
-        driver.get("https://notes.iutmulhouse.uha.fr/")
-        logging.info("Connexion uha résussis !")
-    except:
-        logging.error("Impossible de se connecter uha")
+class NotesScrap():
+    def __init__(self):
+        load_dotenv()
+        self.etudiant_id = {
+            "email"   : os.getenv('email'),
+            "password": os.getenv('password')
+        }
+        self.php_id = {
+            "semestre": os.getenv('php_request'),
+            "sess_id" : ""
+        }
 
-def get_notes():
-    try:
-        driver.get(
-            "https://notes.iutmulhouse.uha.fr/services/data.php?q=relev%C3%A9Etudiant&semestre="+semestre_acces)
-        text_file = driver.page_source
-        if ("redirect" in text_file) or ("erreur" in text_file):
-            logging.warning("no login !")
-            notes_login()
-            get_notes()
-            sleep(5)
-        else:
-            with open("temp/data.json", "w", encoding='utf-8') as save:
-                json.dump(json.loads(text_file[131:-20]), save, indent=2, ensure_ascii=False)
-    except:
-        logging.error("Impossible de récupérer la note")
+    def generate_token(self):
+        try:
+            driver = driver_on()
+            logging.info("Connexion uha en cours...")
+            driver.get("https://cas.uha.fr/cas/login")
+            ident = driver.find_element(By.ID, "username")
+            ident.send_keys(self.etudiant_id["email"])
+            psw = driver.find_element(By.ID, "password")
+            psw.send_keys(self.etudiant_id["password"])
+            button_login = driver.find_element(By.NAME, "submit")
+            button_login.click()
+            driver.get("https://notes.iutmulhouse.uha.fr/")
+            logging.info("Connexion uha résussis !")
+            cookie = driver.get_cookies()
+            new_php_id = cookie[0]["value"]
+            driver.quit()
+            self.php_id["sess_id"] = new_php_id
+        except:
+            logging.error("Impossible de récupérer le token")
 
-#init
-semestre = 5
-semestre_code = {
-    1: "192",
-    2: "425",
-    3: "449",
-    4: "494",
-    5: "530"
-}
-load_dotenv()
+    def get_notes(self):
+        try:
+            url = 'https://notes.iutmulhouse.uha.fr/services/data.php'
+            cookies = {'PHPSESSID': self.php_id["sess_id"]}
+            params = {'q': 'relevéEtudiant', 'semestre': self.php_id["semestre"]}
+            r = requests.post(url, cookies=cookies, params=params)
+            if "doAuth" in r.text:
+                logging.warning("miss login !")
+                self.generate_token()
+                self.get_notes()
+            else:
+                with open("temp/data.json", 'w', encoding='utf-8') as file:
+                    json.dump(r.json(), file, indent=2, ensure_ascii=False)
+        except:
+            logging.error("Impossible de récupérer la note")
+
 email = os.getenv('email')
 password = os.getenv('password')
 php_request = os.getenv('php_request')

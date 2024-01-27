@@ -1,5 +1,5 @@
 from database.notes import NotesBDD
-import scraping.notes as scrap
+from scraping.notes import NotesScrap
 import logging, time, socket, os, schedule
 from dotenv import load_dotenv
 
@@ -13,7 +13,7 @@ def send_bot(message):
         logging.error('Fail to send socket message !')
 
 def check_notes():
-    scrap.get_notes()
+    notes_scrap.get_notes()
     if notes_bdd.check_new_note():
         send_bot("notes")
 
@@ -33,9 +33,11 @@ if __name__ == "__main__":
     logging.basicConfig(filename="notes.log",
                         format='%(asctime)s [%(levelname)s] %(message)s',
                         filemode='a')
-    scrap.notes_login()
-    scrap.get_notes()
+
+    notes_scrap = NotesScrap()
+    notes_scrap.generate_token()
+    notes_scrap.get_notes()
     notes_bdd = NotesBDD()
     logging.info('Lancement de la plannification "notes"')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')
-    # planificateur()
+    planificateur()

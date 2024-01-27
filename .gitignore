@@ -1,6 +1,8 @@
 # environment 
 **/__pycache__
 **/.venv
+/.vsocde
+settings.json
 .env
 
 # log file

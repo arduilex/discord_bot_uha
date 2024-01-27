@@ -1,5 +1,14 @@
 #!/bin/bash
 pkill python
+pkill geckodriver
+pkill firefox-bin
+pkill forkserver
+pkill "Socket Process"
+pkill WebExtensions
+pkill "Isolated Web Co"
+pkill "Web Content"
+pkill "Utility Process"
+
 pkill chromium
 pkill chromedriver
 pkill chromium-browse

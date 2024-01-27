@@ -35,6 +35,7 @@ def get_crous():
             menu_dict = get_day_menu(driver)
         with open("temp/raw_menu.txt", "w", encoding='utf-8') as file:
                 file.write("\n".join(menu_dict["menu"]))
+                logging.info(f"{menu_dict['date']} créé !")
         driver.quit()
     except:
         logging.error("Impossible d'accéder au site crous")

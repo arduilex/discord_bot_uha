@@ -18,7 +18,7 @@ def check_notes():
         send_bot("notes")
 
 def planificateur():
-    schedule.every(10).minutes.do(check_notes)
+    schedule.every(1).minutes.do(check_notes)
     while True:
         schedule.run_pending()
         time.sleep(1)

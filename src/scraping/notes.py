@@ -51,8 +51,3 @@ class NotesScrap():
         except:
             logging.error("Impossible de récupérer la note")
 
-email = os.getenv('email')
-password = os.getenv('password')
-php_request = os.getenv('php_request')
-semestre_acces = php_request
-driver = driver_on()

@@ -32,6 +32,8 @@ class NotesScrap():
             new_php_id = cookie[0]["value"]
             driver.quit()
             self.php_id["sess_id"] = new_php_id
+            with open("data/.sessid", 'w', encoding='utf8') as file:
+                file.write(new_php_id+"\n")
         except:
             logging.error("Impossible de récupérer le token")
 

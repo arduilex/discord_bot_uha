@@ -12,8 +12,9 @@ class NotesScrap():
         }
         self.php_id = {
             "semestre": os.getenv('php_request'),
-            "sess_id" : ""
+            "sess_id" : os.getenv('php_sessid')
         }
+        self.get_notes()
 
     def generate_token(self):
         try:

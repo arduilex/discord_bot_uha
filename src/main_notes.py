@@ -34,8 +34,6 @@ if __name__ == "__main__":
                         filemode='a')
 
     notes_scrap = NotesScrap()
-    notes_scrap.generate_token()
-    notes_scrap.get_notes()
     notes_bdd = NotesBDD()
     logging.info('Lancement de la plannification "notes"')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')

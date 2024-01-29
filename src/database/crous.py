@@ -11,7 +11,7 @@ def create_menu():
         "Pasta Box": [],
         "Origines de nos viandes du jour": []
     }
-    with open("temp/raw_menu.txt", encoding='utf-8') as file:
+    with open("data/raw_menu.txt", encoding='utf-8') as file:
         current_menu = None
         try:
             for line in file:
@@ -22,7 +22,7 @@ def create_menu():
                     new_menus[current_menu].append(line)
         except:
             logging.error("erreur lors de l'extraction du menu raw")
-    # supression de ce que je ne veux pas voir
+    # supression des clés vides
     for key in list(new_menus.keys()):
         if not new_menus[key]:
             del new_menus[key]
@@ -32,7 +32,7 @@ def create_menu():
         json.dump(new_menus, file, ensure_ascii=False, indent=4)
 
 def is_closed():
-    with open("temp/raw_menu.txt", encoding='utf-8') as file:
+    with open("data/raw_menu.txt", encoding='utf-8') as file:
         if len(file.readlines()) < 4:
             return True
         else:

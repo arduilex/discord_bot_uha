@@ -18,13 +18,12 @@ def check_notes():
         send_bot("notes")
 
 def planificateur():
-    schedule.every(10).minutes.do(check_notes)
+    schedule.every(1).minutes.do(check_notes)
     while True:
         schedule.run_pending()
         time.sleep(1)
 
 if __name__ == "__main__":
-    os.makedirs("temp", exist_ok=True)
     os.makedirs("data", exist_ok=True)
     load_dotenv()
     HOST = str(os.getenv('HOST'))
@@ -35,8 +34,6 @@ if __name__ == "__main__":
                         filemode='a')
 
     notes_scrap = NotesScrap()
-    notes_scrap.generate_token()
-    notes_scrap.get_notes()
     notes_bdd = NotesBDD()
     logging.info('Lancement de la plannification "notes"')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')

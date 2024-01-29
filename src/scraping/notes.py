@@ -12,8 +12,9 @@ class NotesScrap():
         }
         self.php_id = {
             "semestre": os.getenv('php_request'),
-            "sess_id" : ""
+            "sess_id" : os.getenv('php_sessid')
         }
+        self.get_notes()
 
     def generate_token(self):
         try:
@@ -32,6 +33,8 @@ class NotesScrap():
             new_php_id = cookie[0]["value"]
             driver.quit()
             self.php_id["sess_id"] = new_php_id
+            with open("data/.sessid", 'w', encoding='utf8') as file:
+                file.write(new_php_id+"\n")
         except:
             logging.error("Impossible de récupérer le token")
 
@@ -46,7 +49,8 @@ class NotesScrap():
                 self.generate_token()
                 self.get_notes()
             else:
-                with open("temp/data.json", 'w', encoding='utf-8') as file:
+                with open("data/data.json", 'w', encoding='utf-8') as file:
                     json.dump(r.json(), file, indent=2, ensure_ascii=False)
         except:
             logging.error("Impossible de récupérer la note")
+

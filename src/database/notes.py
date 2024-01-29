@@ -8,7 +8,7 @@ class NotesBDD():
 
     def extract(self):   # return notes in a clean dict
         # read json file and extract title and note
-        with open("temp/data.json", encoding='utf-8') as json_file:
+        with open("data/data.json", encoding='utf-8') as json_file:
             try:
                 evaluation_bdd = []
                 data = json.load(json_file)
@@ -27,7 +27,7 @@ class NotesBDD():
             except:
                 logging.error("Erreur lors de l'extraction des notes")
         # pour marquer en dure la bdd
-        with open("temp/evaluation.json", "w", encoding='utf-8') as save:
+        with open("data/evaluation.json", "w", encoding='utf-8') as save:
             json.dump(evaluation_bdd, save, indent=3, ensure_ascii=False)
         return evaluation_bdd
 

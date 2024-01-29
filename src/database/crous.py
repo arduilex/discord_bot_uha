@@ -22,7 +22,7 @@ def create_menu():
                     new_menus[current_menu].append(line)
         except:
             logging.error("erreur lors de l'extraction du menu raw")
-    # supression de ce que je ne veux pas voir
+    # supression des clés vides
     for key in list(new_menus.keys()):
         if not new_menus[key]:
             del new_menus[key]

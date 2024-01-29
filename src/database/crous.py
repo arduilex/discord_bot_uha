@@ -11,7 +11,7 @@ def create_menu():
         "Pasta Box": [],
         "Origines de nos viandes du jour": []
     }
-    with open("temp/raw_menu.txt", encoding='utf-8') as file:
+    with open("data/raw_menu.txt", encoding='utf-8') as file:
         current_menu = None
         try:
             for line in file:
@@ -32,7 +32,7 @@ def create_menu():
         json.dump(new_menus, file, ensure_ascii=False, indent=4)
 
 def is_closed():
-    with open("temp/raw_menu.txt", encoding='utf-8') as file:
+    with open("data/raw_menu.txt", encoding='utf-8') as file:
         if len(file.readlines()) < 4:
             return True
         else:

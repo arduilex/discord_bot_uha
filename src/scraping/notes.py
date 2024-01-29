@@ -46,7 +46,7 @@ class NotesScrap():
                 self.generate_token()
                 self.get_notes()
             else:
-                with open("temp/data.json", 'w', encoding='utf-8') as file:
+                with open("data/data.json", 'w', encoding='utf-8') as file:
                     json.dump(r.json(), file, indent=2, ensure_ascii=False)
         except:
             logging.error("Impossible de récupérer la note")

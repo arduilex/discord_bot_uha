@@ -30,9 +30,10 @@ def create_menu():
         del new_menus["Origines de nos viandes du jour"]
     with open('data/menus.json', "w", encoding='utf-8') as file:
         json.dump(new_menus, file, ensure_ascii=False, indent=4)
+    logging.info("menu du crous json créé !")
 
 def is_closed():
-    with open("data/raw_menu.txt", encoding='utf-8') as file:
+    with open("data/raw_menu.txt") as file:
         if len(file.readlines()) < 4:
             return True
         else:

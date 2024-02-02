@@ -9,8 +9,7 @@ settings.json
 *.log
 
 # folder
-**/data
-!/data/cookies.pkl
+
 
 # pyinstaller
 *.spec

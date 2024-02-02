@@ -20,6 +20,7 @@ def get_crous():
     try:
         driver = driver_on()
         driver.get("https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2/")
+        logging.info("crous access")
         # Add cookie to skip popup
         cookies = pickle.load(open("data/cookies.pkl", "rb"))
         for cookie in cookies:
@@ -30,11 +31,14 @@ def get_crous():
         menu_dict = get_day_menu(driver)
         if not today_date in menu_dict["date"]:
             next_day_button.click()
-            time.sleep(1)
+            time.sleep(2)
             menu_dict = get_day_menu(driver)
         with open("data/raw_menu.txt", "w", encoding='utf-8') as file:
-                file.write("\n".join(menu_dict["menu"]))
-                logging.info(f"{menu_dict['date']} créé !")
+            file.write("\n".join(menu_dict["menu"]))
+        logging.info(f"{menu_dict['date']} trouvé !")
         driver.quit()
     except:
         logging.error("Impossible d'accéder au site crous")
+        driver.quit()
+        time.sleep(5)
+        get_crous()

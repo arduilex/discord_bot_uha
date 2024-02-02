@@ -36,6 +36,7 @@ class NotesScrap():
             with open("data/.sessid", 'w', encoding='utf8') as file:
                 file.write(new_php_id+"\n")
         except:
+            driver.quit()
             logging.error("Impossible de récupérer le token")
 
     def get_notes(self):
@@ -52,5 +53,5 @@ class NotesScrap():
                 with open("data/data.json", 'w', encoding='utf-8') as file:
                     json.dump(r.json(), file, indent=2, ensure_ascii=False)
         except:
-            logging.error("Impossible de récupérer la note")
+            logging.error("Impossible de récupérer la requete api")
 

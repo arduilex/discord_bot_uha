@@ -9,7 +9,7 @@ settings.json
 *.log
 
 # folder
-
+**/data
 
 # pyinstaller
 *.spec

@@ -1,12 +1,7 @@
 from .selenium_driver import driver_on
 from selenium.webdriver.common.by import By
 from datetime import datetime
-import logging, time
-
-def skip_cookie(driver):
-    driver.get("https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2/")
-    cookie = driver.find_element(By.ID, "tru_deselect_btn")
-    cookie.click()
+import logging, time, pickle
 
 def get_day_menu(driver):
     menu_dict = {
@@ -24,8 +19,12 @@ def get_day_menu(driver):
 def get_crous():
     try:
         driver = driver_on()
-        skip_cookie(driver)
         driver.get("https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2/")
+        # Add cookie to skip popup
+        cookies = pickle.load(open("data/cookies.pkl", "rb"))
+        for cookie in cookies:
+            driver.add_cookie(cookie)
+        driver.refresh()
         today_date = datetime.now().strftime("%-d")
         next_day_button = driver.find_element(By.CLASS_NAME, "next")
         menu_dict = get_day_menu(driver)

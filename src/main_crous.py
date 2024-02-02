@@ -1,4 +1,4 @@
-import scraping.crous as scrap
+from scraping.crous import CrousScrap
 import database.crous as bdd
 from datetime import datetime
 import logging, time, socket, os, schedule
@@ -36,4 +36,5 @@ if __name__ == "__main__":
                         filemode='a')
     logging.info('main_crous.py Ready to go !')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')
+    scrap = CrousScrap()
     planificateur()

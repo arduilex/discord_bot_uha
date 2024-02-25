@@ -13,8 +13,8 @@ def send_bot(message):
         logging.error('Fail to send socket message !')
 
 def check_notes():
-    notes_scrap.get_notes()
-    if notes_bdd.check_new_note():
+    scrap.get_notes()
+    if bdd.check_new_note():
         send_bot("notes")
 
 def planificateur():
@@ -32,8 +32,8 @@ if __name__ == "__main__":
                         format='%(asctime)s [%(levelname)s] %(message)s',
                         filemode='a')
 
-    notes_scrap = NotesScrap()
-    notes_bdd = NotesBDD()
+    scrap = NotesScrap()
+    bdd = NotesBDD()
     logging.info('Lancement de la plannification "notes"')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')
     planificateur()

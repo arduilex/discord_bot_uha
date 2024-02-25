@@ -1,4 +1,4 @@
-import scraping.crous as scrap
+from scraping.crous import CrousScrap
 import database.crous as bdd
 from datetime import datetime
 import logging, time, socket, os, schedule
@@ -21,7 +21,7 @@ def check_crous():
             send_bot("menu")
 
 def planificateur():
-    schedule.every().day.at("08:00").do(check_crous)
+    schedule.every().day.at("08:31").do(check_crous)
     while True:
         schedule.run_pending()
         time.sleep(1)
@@ -34,6 +34,7 @@ if __name__ == "__main__":
     logging.basicConfig(filename="crous.log",
                         format='%(asctime)s [%(levelname)s] %(message)s',
                         filemode='a')
-    logging.info('main_crous.py Ready to go !')
+    scrap = CrousScrap()
+    logging.info('Lancement de la planification main_crous.py !')
     # démérrage de la boucle infini, prions qu'elle ne plante jamais :')
     planificateur()

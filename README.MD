@@ -6,6 +6,10 @@ A personal bot for Discord that sends **new class notes** and meals from the **C
 - Scrapes data every 10 minutes from [UHA notes](https://notes.iutmulhouse.uha.fr/) after logging in. It compares the scraped data with the previous notes database. If a new note is detected, it sends it in an embellished message to a specific Discord channel. More details on how UHA notes scraping works can be found [here](./uha_scraping_wiki.MD).
 - Scrapes data every day at 8 am from [Crous Restaurant](https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2). The meal is then sent in an embellished message to a specific Discord channel.
 
+<p align="center">
+    <img src="screenshot/notes.png" alt="alt-text-1" style="vertical-align: middle;" width="332"/> 
+    <img src="screenshot/crous.png" alt="alt-text-2" style="vertical-align: middle;" width="265"/>
+</p>
 
 ## Getting Started
 
@@ -22,7 +26,7 @@ source .venv/bin/activate
 ``` 
 ### 2. Install dependencies
 ```bash
-pip isntall -r requirements.txt
+pip install -r requirements.txt
 ```
 `requirements.txt` includes :
 * [Discord.py](https://discordpy.readthedocs.io/) for the bot

@@ -7,7 +7,7 @@ A personal bot for Discord that sends **new class notes** and meals from the **C
 - Scrapes data every day at 8 am from [Crous Restaurant](https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2). The meal is then sent in an embellished message to a specific Discord channel.
 
 <p align="center">
-    <img src="screenshot/notes.png" alt="alt-text-1" style="vertical-align: middle;" width="333"/> 
+    <img src="screenshot/notes.png" alt="alt-text-1" style="vertical-align: middle;" width="332"/> 
     <img src="screenshot/crous.png" alt="alt-text-2" style="vertical-align: middle;" width="265"/>
 </p>
 

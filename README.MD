@@ -8,7 +8,7 @@ A personal bot for Discord that sends **new class notes** and meals from the **C
 
 <p align="center">
     <img src="screenshot/notes.png" alt="alt-text-1" style="vertical-align: middle;" width="332"/> 
-    <img src="screenshot/crous.png" alt="alt-text-2" style="vertical-align: middle;" width="255"/>
+    <img src="screenshot/crous.png" alt="alt-text-2" style="vertical-align: middle;" width="243"/>
 </p>
 
 ## Getting Started

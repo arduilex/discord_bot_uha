@@ -7,7 +7,7 @@ options.add_argument("--headless")  # Assurez-vous d'utiliser deux tirets
 # options.add_argument("--disable-gpu")
 
 # see https://ivanderevianko.com/2020/01/selenium-chromedriver-for-raspberrypi
-chrome_service = Service('/usr/lib/chromium-browser/chromedriver')
+chrome_service = Service('/usr/bin/chromedriver')
 
 # Initialisez le WebDriver avec les options et le service spécifiés
 chrome = webdriver.Chrome(service=chrome_service, options=options)

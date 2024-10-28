@@ -14,14 +14,16 @@ def send_bot(message):
         logging.error('Fail to send socket message !')
 
 def check_crous():
-    if datetime.today().isoweekday() < 6:
-        scrap.get_crous()
-        if not bdd.is_closed():
-            bdd.create_menu()
-            send_bot("menu")
+    if datetime.today().isoweekday() <= 5:
+        load_dotenv()
+        if int(os.getenv('crous_enable')) == 1:
+            scrap.get_crous()
+            if not bdd.is_closed():
+                bdd.create_menu()
+                send_bot("menu")
 
 def planificateur():
-    schedule.every().day.at("08:31").do(check_crous)
+    schedule.every().day.at("09:45").do(check_crous)
     while True:
         schedule.run_pending()
         time.sleep(1)

@@ -24,7 +24,6 @@ class NotesBDD():
             self.old_bdd = self.now_bdd
 
     def check_new_note(self):
-        input()
         self.now_bdd = self.open_notes()
         self.find_new_note()
         if self.new_notes:

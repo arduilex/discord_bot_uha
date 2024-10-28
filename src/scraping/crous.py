@@ -1,4 +1,4 @@
-from .selenium_driver import driver_on
+from .selenium_driver_raspi import driver_on
 from selenium.webdriver.common.by import By
 from datetime import datetime
 import logging, time, pickle
@@ -14,7 +14,6 @@ class CrousScrap():
             # menu_obj = driver.find_elements(By.CLASS_NAME, "meal")
             menu_str = menu_obj[0].text
             self.crous_date, *self.crous_menu = menu_str.split('\n')
-            print(self.crous_menu)
         except:
             logging.error("Impossible de récupérer le menu")
 

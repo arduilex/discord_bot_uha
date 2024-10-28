@@ -1,4 +1,4 @@
-from .selenium_driver import driver_on
+from .selenium_driver_raspi import driver_on
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from dotenv import load_dotenv
@@ -27,7 +27,7 @@ class NotesScrap():
         except:
             logging.error("Impossible de se connecter Icam cas")
         try:
-            # find notes 
+            # find notes
             dernieres_notes = "//header[@title='Les 10 dernières notes']"
             WebDriverWait(driver, 10).until(lambda driver_: driver_.find_element(By.XPATH, dernieres_notes))
             driver.find_element(By.XPATH, dernieres_notes).click()
@@ -40,9 +40,8 @@ class NotesScrap():
             driver.quit()
         except:
             logging.error("impossible de récupérer les notes")
-        print(raw_notes)
         self.save_notes(raw_notes)
-        
+
     def save_notes(self, data):
         try:
             list_notes = []

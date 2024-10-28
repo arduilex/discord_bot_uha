@@ -3,4 +3,4 @@ selenium
 webdriver-manager
 discord.py
 schedule
-pickle5
+

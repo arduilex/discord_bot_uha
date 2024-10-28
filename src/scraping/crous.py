@@ -21,7 +21,7 @@ class CrousScrap():
     def get_crous(self):
         driver = driver_on()
         try:
-            driver.get("https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse/")
+            driver.get("https://www.crous-strasbourg.fr/restaurant/resto-u-cronenbourg-2/")
             logging.info("crous website loaded sucessfull")
             # Add cookie to skip popup
             cookies = pickle.load(open("data/cookies.pkl", "rb"))
@@ -33,8 +33,8 @@ class CrousScrap():
             self.get_day_menu(driver)
             if not today_date_number in self.crous_date:
                 next_day_button = driver.find_element(By.CLASS_NAME, "next")
-                next_day_button.click()
-                logging.info("clic sur le bouton suivant")
+                # next_day_button.click()
+                # logging.info("clic sur le bouton suivant")
                 time.sleep(1)
                 self.get_day_menu(driver)
             with open("data/raw_menu.txt", "w", encoding='utf-8') as file:

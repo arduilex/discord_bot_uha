@@ -1,6 +1,7 @@
 # environment 
 **/__pycache__
 **/.venv
+**/myenv
 /.vsocde
 settings.json
 .env

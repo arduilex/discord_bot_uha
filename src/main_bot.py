@@ -12,28 +12,25 @@ async def get_note():
 async def send_note(eval):
     guild = bot.get_guild(SERVER_GEII)
     channel = guild.get_channel(CHANNEL_NOTE)
-    date_obj = datetime.fromisoformat(eval["date"])
-    eval["date"] = date_obj.strftime("%d/%m/%Y")
     # Création de l'objet Embed
-    crousEmbed = discord.Embed(color=0x004996, title='Note IUT Mulhouse',
-                               url='https://notes.iutmulhouse.uha.fr/')
+    crousEmbed = discord.Embed(color=0x004996, title='Hyperplaning Icam',
+                               url='https://planning.icam.fr/')
     # crousEmbed.set_author(name='Alerte à la note !!!', icon_url='https://i.imgur.com/sI7EssK.png')
     # crousEmbed.set_thumbnail(url='https://i.imgflip.com/6bbwfy.jpg')
 
     # Supposons que new_note est un objet avec les attributs appropriés
     crousEmbed.add_field(name='Date', value=eval["date"], inline=False)
-    crousEmbed.add_field(name=eval["matiere"],
+    crousEmbed.add_field(name=eval["EC"],
                          value=eval["titre"], inline=False)
     crousEmbed.add_field(name='Coef', value=eval["coef"], inline=False)
-    note = eval["note"]
-    crousEmbed.add_field(name='Minimum', value=note["min"], inline=True)
-    crousEmbed.add_field(name='Moyenne', value=note["moy"], inline=True)
-    crousEmbed.add_field(name='Maximum', value=note["max"], inline=True)
+    crousEmbed.add_field(name='Minimum', value=eval["min"], inline=True)
+    crousEmbed.add_field(name='Moyenne', value=eval["moy"], inline=True)
+    crousEmbed.add_field(name='Maximum', value=eval["max"], inline=True)
 
     # Remplacez 'picture_linker(moy)' par le lien réel de l'image
     # crousEmbed.set_image(url='https://i.imgur.com/1AUc8m7.jpg')
     crousEmbed.set_footer(
-        text='BOT GEII', icon_url='https://i.imgur.com/dwti2sm.png')
+        text='BOT ICAM', icon_url='https://i.imgur.com/dwti2sm.png')
     crousEmbed.timestamp = datetime.now()  # Met à jour le timestamp
     await channel.send(embed=crousEmbed)
 
@@ -48,7 +45,7 @@ async def send_menu():
     for key in carte_crous.keys():
         crousEmbed.add_field(name=key, value="\n".join(carte_crous[key]), inline=False)
     crousEmbed.set_footer(
-        text='BOT GEII', icon_url='https://i.imgur.com/dwti2sm.png')
+        text='BOT ICAM', icon_url='https://i.imgur.com/dwti2sm.png')
     crousEmbed.timestamp = datetime.now()  # Met à jour le timestamp
     await channel.send(embed=crousEmbed)
 

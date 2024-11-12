@@ -38,10 +38,9 @@ class NotesScrap():
                 detail_note = driver.find_elements(By.CLASS_NAME, "Zone-DetailsNotes")
                 raw_notes.append(detail_note[0].text.split("\n"))
             driver.quit()
+            self.save_notes(raw_notes)
         except:
             logging.error("impossible de récupérer les notes")
-        self.save_notes(raw_notes)
-
     def save_notes(self, data):
         try:
             list_notes = []

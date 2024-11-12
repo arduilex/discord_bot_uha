@@ -41,7 +41,7 @@ async def send_menu():
     guild = bot.get_guild(SERVER_GEII)
     channel = guild.get_channel(CHANNEL_CROUS)
     crousEmbed = discord.Embed(color=0xf54242, title='RestoU CROUS',
-                               url='https://www.crous-strasbourg.fr/restaurant/resto-u-de-liut-mulhouse-2/')
+                               url='https://www.crous-strasbourg.fr/restaurant/resto-u-cronenbourg-2/')
     for key in carte_crous.keys():
         crousEmbed.add_field(name=key, value="\n".join(carte_crous[key]), inline=False)
     crousEmbed.set_footer(

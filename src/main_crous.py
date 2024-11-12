@@ -23,7 +23,7 @@ def check_crous():
                 send_bot("menu")
 
 def planificateur():
-    schedule.every().day.at("09:45").do(check_crous)
+    schedule.every().day.at("09:30").do(check_crous)
     while True:
         schedule.run_pending()
         time.sleep(1)

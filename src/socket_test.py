@@ -14,4 +14,4 @@ def send_bot(message):
 # parametres fonctionnelles : 
 # menu
 # notes
-send_bot("notes")
+send_bot("menu")
